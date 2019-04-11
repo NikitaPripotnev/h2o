@@ -1,0 +1,19 @@
+# Cache-Control
+<ifModule mod_headers.c>
+# 30 дней
+<filesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf)$">
+Header set Cache-Control "max-age=2592000, public"
+</filesMatch>
+# 30 дней
+<filesMatch "\.(css|js)$">
+Header set Cache-Control "max-age=172800, public"
+</filesMatch>
+# 2 дня
+<filesMatch "\.(xml|txt)$">
+Header set Cache-Control "max-age=172800, public, must-revalidate"
+</filesMatch>
+# 1 день
+<filesMatch "\.(html|htm|php)$">
+Header set Cache-Control "max-age=172800, private, must-revalidate"
+</filesMatch>
+</ifModule>
